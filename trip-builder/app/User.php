@@ -6,6 +6,10 @@ use Illuminate\Notifications\Notifiable;
 use Illuminate\Contracts\Auth\MustVerifyEmail;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 
+/**
+ * @method static truncate()
+ * @method static User create(array $array)
+ */
 class User extends Authenticatable
 {
     use Notifiable;
