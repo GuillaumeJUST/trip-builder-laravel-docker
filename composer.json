@@ -1,0 +1,16 @@
+{
+    "name": "gjust/momentum-travel",
+    "description": "A simple trip builder application",
+    "type": "project",
+    "require": {
+        "laravel/installer": "^2.0",
+        "ext-http": "*"
+    },
+    "authors": [
+        {
+            "name": "Guillaume JUST",
+            "email": "guillaume.just.perso@gmail.com"
+        }
+    ],
+    "minimum-stability": "stable"
+}

@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 /**
  * @method static City create(array $array)
  * @method static truncate()
+ * @method static paginate($get)
  */
 class City extends Model
 {
@@ -17,7 +18,7 @@ class City extends Model
     /**
      * @var array
      */
-    protected $fillable = ['code', 'name'];
+    protected $fillable = ['code', 'name', 'region_id'];
 
     public function region(): BelongsTo
     {

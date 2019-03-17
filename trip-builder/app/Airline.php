@@ -5,6 +5,7 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Facades\Auth;
 
 /**
  * Class Airline
@@ -12,6 +13,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
  *
  * @method static Airline create(array $array)
  * @method static truncate()
+ * @method static paginate($get)
  */
 class Airline extends Model
 {
@@ -29,6 +31,19 @@ class Airline extends Model
 
     public function createdBy(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'id', 'created_by');
+        return $this->belongsTo(User::class);
+    }
+
+    public static function boot(): void
+    {
+        static::creating(function (Airline $airline) {
+            /** @var User $user */
+            $user = Auth::user();
+            if (null !== $user) {
+                $airline->created_by = $user->id;
+            }
+        });
+
+        parent::boot();
     }
 }

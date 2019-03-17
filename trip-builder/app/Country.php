@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 /**
  * @method static truncate()
  * @method static Country create(array $array)
+ * @method static paginate($get)
  */
 class Country extends Model
 {

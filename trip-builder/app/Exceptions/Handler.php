@@ -3,7 +3,14 @@
 namespace App\Exceptions;
 
 use Exception;
+use HttpException;
+use HttpResponseException;
+use Illuminate\Auth\Access\AuthorizationException;
+use Illuminate\Database\Eloquent\ModelNotFoundException;
 use Illuminate\Foundation\Exceptions\Handler as ExceptionHandler;
+use Illuminate\Validation\ValidationException;
+use Symfony\Component\HttpKernel\Exception\MethodNotAllowedHttpException;
+use Symfony\Component\HttpKernel\Exception\NotFoundHttpException;
 
 class Handler extends ExceptionHandler
 {
@@ -46,6 +53,37 @@ class Handler extends ExceptionHandler
      */
     public function render($request, Exception $exception)
     {
-        return parent::render($request, $exception);
+
+        if (!$request->wantsJson()) {
+            return parent::render($request, $exception);
+        }
+
+        $errors = [];
+        $status = 500;
+        if ($exception->getMessage() instanceof MethodNotAllowedHttpException) {
+            $status = 405;
+        } elseif ($exception instanceof NotFoundHttpException) {
+            $status = 404;
+        } elseif ($exception instanceof ModelNotFoundException) {
+            $status = 404;
+        } elseif ($exception instanceof AuthorizationException) {
+            $status = 403;
+        } elseif ($exception instanceof ValidationException) {
+            $status = 400;
+            $errors = $exception->errors();
+        }
+
+        $responseData = [
+            'success' => false,
+            'status' => $status,
+            'message' => $exception->getMessage(),
+            'errors' => $errors,
+        ];
+
+        if (env('APP_DEBUG')) {
+            $responseData['trace'] = $exception->getTrace();
+        }
+
+        return response()->json($responseData, $status);
     }
 }

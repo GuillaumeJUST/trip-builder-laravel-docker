@@ -5,12 +5,14 @@ namespace App;
 use Illuminate\Database\Eloquent\Model;
 use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
+use Illuminate\Support\Facades\Auth;
 
 /**
  * Class Airport
  * @package App
  * @method static truncate()
  * @method static Airport create(array $array)
+ * @method static paginate($get)
  */
 class Airport extends Model
 {
@@ -19,7 +21,7 @@ class Airport extends Model
     /**
      * @var array
      */
-    protected $fillable = ['code', 'name', 'longitude', 'latitude', 'timezone'];
+    protected $fillable = ['code', 'name', 'longitude', 'latitude', 'timezone', 'city_id'];
 
     public function city(): BelongsTo
     {
@@ -28,7 +30,7 @@ class Airport extends Model
 
     public function createdBy(): BelongsTo
     {
-        return $this->belongsTo(User::class, 'id', 'created_by');
+        return $this->belongsTo(User::class);
     }
 
     public function departureFlights(): HasMany
@@ -39,5 +41,18 @@ class Airport extends Model
     public function arrivalFlights(): HasMany
     {
         return $this->hasMany(Flight::class, 'arrival_airport_id');
+    }
+
+    public static function boot(): void
+    {
+        static::creating(function (Airport $airport) {
+            /** @var User $user */
+            $user = Auth::user();
+            if (null !== $user) {
+                $airport->created_by = $user->id;
+            }
+        });
+
+        parent::boot();
     }
 }
