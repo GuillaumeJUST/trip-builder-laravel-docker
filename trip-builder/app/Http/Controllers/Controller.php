@@ -24,6 +24,7 @@ use Illuminate\Foundation\Auth\Access\AuthorizesRequests;
  *     in="header",
  *     securityScheme="Authorization",
  *     name="Authorization",
+ *     description="Bearer TOKEN"
  * )
  */
 class Controller extends BaseController

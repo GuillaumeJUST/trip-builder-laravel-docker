@@ -39,6 +39,51 @@ class LoginController extends Controller
         $this->middleware('guest')->except('logout');
     }
 
+    /**
+     * @OA\Post(
+     *     path="/login",
+     *     tags={"Auth"},
+     *     summary="Logs user into system",
+     *     operationId="Login",
+     *     @OA\Parameter(
+     *         name="email",
+     *         in="query",
+     *         description="The email for login",
+     *         required=true,
+     *         example="admin@test.com",
+     *         @OA\Schema(
+     *             type="string"
+     *         )
+     *     ),
+     *     @OA\Parameter(
+     *         name="password",
+     *         in="query",
+     *         required=true,
+     *         example="123456",
+     *         @OA\Schema(
+     *             type="string",
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=200,
+     *         description="successful operation",
+     *         @OA\JsonContent(
+     *             type="string"
+     *         ),
+     *         @OA\MediaType(
+     *             mediaType="application/x-www-form-urlencoded"
+     *         )
+     *     ),
+     *     @OA\Response(
+     *         response=400,
+     *         description="Invalid username/password supplied"
+     *     )
+     * )
+     * @param Request $request
+     *
+     * @return \Illuminate\Http\JsonResponse|\Symfony\Component\HttpFoundation\Response
+     * @throws \Illuminate\Validation\ValidationException
+     */
     public function login(Request $request)
     {
         $this->validateLogin($request);
@@ -55,6 +100,21 @@ class LoginController extends Controller
         return $this->sendFailedLoginResponse($request);
     }
 
+    /**
+     * @OA\Post(
+     *     path="/logout",
+     *     tags={"Auth"},
+     *     summary="Logs out current logged in user session",
+     *     operationId="logout",
+     *     security={
+     *        {"Authorization": {}}
+     *     },
+     *     @OA\Response(
+     *         response="default",
+     *         description="successful operation"
+     *     )
+     * )
+     */
     public function logout(Request $request)
     {
         $user = Auth::guard('api')->user();

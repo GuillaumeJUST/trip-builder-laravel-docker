@@ -15,7 +15,7 @@ class CountryController extends Controller
      *      tags={"Countries"},
      *      summary="Get list of countries",
      *      description="Returns list of countries",
-     *      @OA\Response(response=200, description="successful operation"),
+     *      @OA\Response(response=200, description="successful operation", @OA\JsonContent()),
      *      @OA\Response(response=400, description="Bad request"),
      * )
      *
@@ -45,7 +45,7 @@ class CountryController extends Controller
      *              type="integer"
      *          )
      *      ),
-     *      @OA\Response(response=200, description="successful operation"),
+     *      @OA\Response(response=200, description="successful operation", @OA\JsonContent()),
      *      @OA\Response(response=400, description="Bad request"),
      * )
      *
@@ -75,7 +75,7 @@ class CountryController extends Controller
      *             @OA\Schema(ref="#/components/schemas/Country")
      *         )
      *      ),
-     *      @OA\Response(response=200, description="successful operation"),
+     *      @OA\Response(response=200, description="successful operation", @OA\JsonContent()),
      *      @OA\Response(response=400, description="Bad request"),
      * )
      *
@@ -116,7 +116,7 @@ class CountryController extends Controller
      *             @OA\Schema(ref="#/components/schemas/Country")
      *         )
      *      ),
-     *      @OA\Response(response=200, description="successful operation"),
+     *      @OA\Response(response=200, description="successful operation", @OA\JsonContent()),
      *      @OA\Response(response=400, description="Bad request"),
      * )
      *
@@ -150,7 +150,7 @@ class CountryController extends Controller
      *              type="integer"
      *          )
      *      ),
-     *      @OA\Response(response=200, description="successful operation"),
+     *      @OA\Response(response=200, description="successful operation", @OA\JsonContent()),
      *      @OA\Response(response=400, description="Bad request"),
      * )
      *
