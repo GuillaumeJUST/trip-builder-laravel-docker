@@ -50,6 +50,7 @@ class LoginController extends Controller
      *         in="query",
      *         description="The email for login",
      *         required=true,
+     *         example="admin@test.com",
      *         @OA\Schema(
      *             type="string"
      *         )
@@ -58,6 +59,7 @@ class LoginController extends Controller
      *         name="password",
      *         in="query",
      *         required=true,
+     *         example="123456",
      *         @OA\Schema(
      *             type="string",
      *         )
