@@ -1,6 +1,6 @@
 # Trip Builder Project
 
-A simple webservice PHP made with Laravel
+A simple PHP API made with Laravel
 
 ## Prerequisites
 
