@@ -87,4 +87,6 @@ I used postman to call my web service https://www.getpostman.com
 
 You can import my collections and my environment, go to folder postman
 
+Swagger documentation : http://127.0.0.1/api/documentation
 
+❌ I have an authentication problem on APIs with authentication, but it works under postman
