@@ -16,7 +16,7 @@ class AirlineController extends Controller
      *      tags={"Airlines"},
      *      summary="Get list of airlines",
      *      description="Returns list of airlines",
-     *      @OA\Response(response=200, description="successful operation"),
+     *      @OA\Response(response=200, description="successful operation", @OA\JsonContent()),
      *      @OA\Response(response=400, description="Bad request"),
      * )
      *
@@ -46,7 +46,7 @@ class AirlineController extends Controller
      *              type="integer"
      *          )
      *      ),
-     *      @OA\Response(response=200, description="successful operation"),
+     *      @OA\Response(response=200, description="successful operation", @OA\JsonContent()),
      *      @OA\Response(response=400, description="Bad request"),
      * )
      *
@@ -78,7 +78,7 @@ class AirlineController extends Controller
      *             @OA\Schema(ref="#/components/schemas/Airline")
      *         )
      *      ),
-     *      @OA\Response(response=200, description="successful operation"),
+     *      @OA\Response(response=200, description="successful operation", @OA\JsonContent()),
      *      @OA\Response(response=400, description="Bad request"),
      * )
      *
@@ -119,7 +119,7 @@ class AirlineController extends Controller
      *             @OA\Schema(ref="#/components/schemas/Airline")
      *         )
      *      ),
-     *      @OA\Response(response=200, description="successful operation"),
+     *      @OA\Response(response=200, description="successful operation", @OA\JsonContent()),
      *      @OA\Response(response=400, description="Bad request"),
      * )
      *
@@ -153,7 +153,7 @@ class AirlineController extends Controller
      *              type="integer"
      *          )
      *      ),
-     *      @OA\Response(response=200, description="successful operation"),
+     *      @OA\Response(response=200, description="successful operation", @OA\JsonContent()),
      *      @OA\Response(response=400, description="Bad request"),
      * )
      *

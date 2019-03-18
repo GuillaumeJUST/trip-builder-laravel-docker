@@ -16,7 +16,7 @@ class RegionController extends Controller
      *      tags={"Regions"},
      *      summary="Get list of regions",
      *      description="Returns list of regions",
-     *      @OA\Response(response=200, description="successful operation"),
+     *      @OA\Response(response=200, description="successful operation", @OA\JsonContent()),
      *      @OA\Response(response=400, description="Bad request"),
      * )
      *
@@ -46,7 +46,7 @@ class RegionController extends Controller
      *              type="integer"
      *          )
      *      ),
-     *      @OA\Response(response=200, description="successful operation"),
+     *      @OA\Response(response=200, description="successful operation", @OA\JsonContent()),
      *      @OA\Response(response=400, description="Bad request"),
      * )
      *
@@ -76,7 +76,7 @@ class RegionController extends Controller
      *             @OA\Schema(ref="#/components/schemas/Region")
      *         )
      *      ),
-     *      @OA\Response(response=200, description="successful operation"),
+     *      @OA\Response(response=200, description="successful operation", @OA\JsonContent()),
      *      @OA\Response(response=400, description="Bad request"),
      * )
      *
@@ -117,7 +117,7 @@ class RegionController extends Controller
      *             @OA\Schema(ref="#/components/schemas/Region")
      *         )
      *      ),
-     *      @OA\Response(response=200, description="successful operation"),
+     *      @OA\Response(response=200, description="successful operation", @OA\JsonContent()),
      *      @OA\Response(response=400, description="Bad request"),
      * )
      *
@@ -151,7 +151,7 @@ class RegionController extends Controller
      *              type="integer"
      *          )
      *      ),
-     *      @OA\Response(response=200, description="successful operation"),
+     *      @OA\Response(response=200, description="successful operation", @OA\JsonContent()),
      *      @OA\Response(response=400, description="Bad request"),
      * )
      *

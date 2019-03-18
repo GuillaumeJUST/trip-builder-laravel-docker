@@ -15,7 +15,7 @@ class FlightController extends Controller
      *      tags={"Flights"},
      *      summary="Get list of flights",
      *      description="Returns list of flights",
-     *      @OA\Response(response=200, description="successful operation"),
+     *      @OA\Response(response=200, description="successful operation", @OA\JsonContent()),
      *      @OA\Response(response=400, description="Bad request"),
      * )
      *
@@ -45,7 +45,7 @@ class FlightController extends Controller
      *              type="integer"
      *          )
      *      ),
-     *      @OA\Response(response=200, description="successful operation"),
+     *      @OA\Response(response=200, description="successful operation", @OA\JsonContent()),
      *      @OA\Response(response=400, description="Bad request"),
      * )
      *
@@ -75,7 +75,7 @@ class FlightController extends Controller
      *             @OA\Schema(ref="#/components/schemas/Flight")
      *         )
      *      ),
-     *      @OA\Response(response=200, description="successful operation"),
+     *      @OA\Response(response=200, description="successful operation", @OA\JsonContent()),
      *      @OA\Response(response=400, description="Bad request"),
      * )
      *
@@ -116,7 +116,7 @@ class FlightController extends Controller
      *             @OA\Schema(ref="#/components/schemas/Flight")
      *         )
      *      ),
-     *      @OA\Response(response=200, description="successful operation"),
+     *      @OA\Response(response=200, description="successful operation", @OA\JsonContent()),
      *      @OA\Response(response=400, description="Bad request"),
      * )
      *
@@ -150,7 +150,7 @@ class FlightController extends Controller
      *              type="integer"
      *          )
      *      ),
-     *      @OA\Response(response=200, description="successful operation"),
+     *      @OA\Response(response=200, description="successful operation", @OA\JsonContent()),
      *      @OA\Response(response=400, description="Bad request"),
      * )
      *
