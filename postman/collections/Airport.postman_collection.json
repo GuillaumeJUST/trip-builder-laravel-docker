@@ -1,0 +1,264 @@
+{
+	"info": {
+		"_postman_id": "1b6d85e1-15ba-4ae9-be17-842bc972e17d",
+		"name": "Airport",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "List",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "{{api}}/v1/airports",
+					"host": [
+						"{{api}}"
+					],
+					"path": [
+						"v1",
+						"airports"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Detail",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{api}}/v1/airports/1",
+					"host": [
+						"{{api}}"
+					],
+					"path": [
+						"v1",
+						"airports",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "code",
+							"value": "OKKT",
+							"type": "text"
+						},
+						{
+							"key": "name",
+							"value": "qsdqsd",
+							"type": "text"
+						},
+						{
+							"key": "latitude",
+							"value": "49.194698",
+							"type": "text"
+						},
+						{
+							"key": "longitude",
+							"value": "-123.179192",
+							"type": "text"
+						},
+						{
+							"key": "timezone",
+							"value": "America/Montreal",
+							"type": "text"
+						},
+						{
+							"key": "city_id",
+							"value": "1",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{api}}/v1/airports",
+					"host": [
+						"{{api}}"
+					],
+					"path": [
+						"v1",
+						"airports"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "name",
+							"value": "qsdqsd",
+							"type": "text"
+						},
+						{
+							"key": "latitude",
+							"value": "49.194698",
+							"type": "text"
+						},
+						{
+							"key": "longitude",
+							"value": "-123.179192",
+							"type": "text"
+						},
+						{
+							"key": "timezone",
+							"value": "America/Montreal",
+							"type": "text"
+						},
+						{
+							"key": "city_id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "code",
+							"value": "GY",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{api}}/v1/airports/4",
+					"host": [
+						"{{api}}"
+					],
+					"path": [
+						"v1",
+						"airports",
+						"4"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{api}}/v1/airports/4",
+					"host": [
+						"{{api}}"
+					],
+					"path": [
+						"v1",
+						"airports",
+						"4"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{api_token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "cc3bbbf7-cd58-4eea-ba4d-bd3f10861da6",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "b939ceee-b3ca-4ab4-bc30-3aed351df0dc",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}

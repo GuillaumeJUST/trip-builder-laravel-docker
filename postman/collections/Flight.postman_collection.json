@@ -1,0 +1,274 @@
+{
+	"info": {
+		"_postman_id": "0e44ba19-2aa9-4563-bbe2-46578e316264",
+		"name": "Flight",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "List",
+			"protocolProfileBehavior": {
+				"disableBodyPruning": true
+			},
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {},
+				"url": {
+					"raw": "{{api}}/v1/flights",
+					"host": [
+						"{{api}}"
+					],
+					"path": [
+						"v1",
+						"flights"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Detail",
+			"request": {
+				"method": "GET",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{api}}/v1/flights/1",
+					"host": [
+						"{{api}}"
+					],
+					"path": [
+						"v1",
+						"flights",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Create",
+			"request": {
+				"method": "POST",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "number",
+							"value": "12345",
+							"type": "text"
+						},
+						{
+							"key": "airline_id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "departure_airport_id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "departure_time",
+							"value": "09:29",
+							"type": "text"
+						},
+						{
+							"key": "arrival_airport_id",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "arrival_time",
+							"value": "10:30",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "100",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{api}}/v1/flights",
+					"host": [
+						"{{api}}"
+					],
+					"path": [
+						"v1",
+						"flights"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Update",
+			"request": {
+				"method": "PUT",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					},
+					{
+						"key": "Content-Type",
+						"name": "Content-Type",
+						"value": "application/x-www-form-urlencoded",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "urlencoded",
+					"urlencoded": [
+						{
+							"key": "number",
+							"value": "12345",
+							"type": "text"
+						},
+						{
+							"key": "airline_id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "departure_airport_id",
+							"value": "1",
+							"type": "text"
+						},
+						{
+							"key": "departure_time",
+							"value": "09:29",
+							"type": "text"
+						},
+						{
+							"key": "arrival_airport_id",
+							"value": "2",
+							"type": "text"
+						},
+						{
+							"key": "arrival_time",
+							"value": "10:30",
+							"type": "text"
+						},
+						{
+							"key": "price",
+							"value": "100",
+							"type": "text"
+						}
+					]
+				},
+				"url": {
+					"raw": "{{api}}/v1/flights/1",
+					"host": [
+						"{{api}}"
+					],
+					"path": [
+						"v1",
+						"flights",
+						"1"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Delete",
+			"request": {
+				"method": "DELETE",
+				"header": [
+					{
+						"key": "Accept",
+						"value": "application/json",
+						"type": "text"
+					}
+				],
+				"body": {
+					"mode": "raw",
+					"raw": ""
+				},
+				"url": {
+					"raw": "{{api}}/v1/flights/1",
+					"host": [
+						"{{api}}"
+					],
+					"path": [
+						"v1",
+						"flights",
+						"1"
+					]
+				}
+			},
+			"response": []
+		}
+	],
+	"auth": {
+		"type": "bearer",
+		"bearer": [
+			{
+				"key": "token",
+				"value": "{{api_token}}",
+				"type": "string"
+			}
+		]
+	},
+	"event": [
+		{
+			"listen": "prerequest",
+			"script": {
+				"id": "cc3bbbf7-cd58-4eea-ba4d-bd3f10861da6",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		},
+		{
+			"listen": "test",
+			"script": {
+				"id": "b939ceee-b3ca-4ab4-bc30-3aed351df0dc",
+				"type": "text/javascript",
+				"exec": [
+					""
+				]
+			}
+		}
+	]
+}
