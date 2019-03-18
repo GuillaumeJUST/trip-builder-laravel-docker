@@ -8,6 +8,23 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Facades\Auth;
 
 /**
+ *
+ *  @OA\Schema(
+ *   schema="Airport",
+ *   type="object",
+ *   allOf={
+ *       @OA\Schema(
+ *           required={"code"},
+ *           @OA\Property(property="code"),
+ *           @OA\Property(property="name"),
+ *           @OA\Property(property="latitude"),
+ *           @OA\Property(property="longitude"),
+ *           @OA\Property(property="timezone"),
+ *           @OA\Property(property="city_id")
+ *       )
+ *   }
+ * )
+ *
  * Class Airport
  * @package App
  * @method static truncate()

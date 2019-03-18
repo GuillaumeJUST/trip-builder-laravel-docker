@@ -8,6 +8,19 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 use Illuminate\Support\Facades\Auth;
 
 /**
+ *
+ *  @OA\Schema(
+ *   schema="Airline",
+ *   type="object",
+ *   allOf={
+ *       @OA\Schema(
+ *           required={"code"},
+ *           @OA\Property(property="code"),
+ *           @OA\Property(property="name")
+ *       )
+ *   }
+ * )
+ *
  * Class Airline
  * @package App
  *

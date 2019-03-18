@@ -7,6 +7,19 @@ use Illuminate\Database\Eloquent\Relations\HasMany;
 
 
 /**
+ *
+ *  @OA\Schema(
+ *   schema="Country",
+ *   type="object",
+ *   allOf={
+ *       @OA\Schema(
+ *           required={"code"},
+ *           @OA\Property(property="code"),
+ *           @OA\Property(property="name")
+ *       )
+ *   }
+ * )
+ *
  * @method static truncate()
  * @method static Country create(array $array)
  * @method static paginate($get)

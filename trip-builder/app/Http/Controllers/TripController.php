@@ -22,6 +22,17 @@ class TripController extends Controller
     }
 
     /**
+     *
+     * @OA\Get(
+     *      path="/trips",
+     *      operationId="getTripsList",
+     *      tags={"Trips"},
+     *      summary="Get list of trips",
+     *      description="Returns list of trips",
+     *      @OA\Response(response=200, description="successful operation"),
+     *      @OA\Response(response=400, description="Bad request"),
+     * )
+     *
      * @param Request $request
      *
      * @return mixed
@@ -32,6 +43,26 @@ class TripController extends Controller
     }
 
     /**
+     *
+     * @OA\Get(
+     *      path="/trips/{trip}",
+     *      operationId="getTripById",
+     *      tags={"Trips"},
+     *      summary="Get trip information",
+     *      description="Returns trip data",
+     *      @OA\Parameter(
+     *          name="id",
+     *          description="Trip id",
+     *          required=true,
+     *          in="path",
+     *          @OA\Schema(
+     *              type="integer"
+     *          )
+     *      ),
+     *      @OA\Response(response=200, description="successful operation"),
+     *      @OA\Response(response=400, description="Bad request"),
+     * )
+     *
      * @param Request $request
      * @param Trip    $trip
      *
@@ -47,6 +78,25 @@ class TripController extends Controller
     }
 
     /**
+     *
+     * @OA\Post(
+     *      path="/trips",
+     *      operationId="postTrip",
+     *      tags={"Trips"},
+     *      summary="Store trip",
+     *      description="Create new trip",
+     *      @OA\RequestBody(
+     *         description="Trip object",
+     *         required=true,
+     *         @OA\MediaType(
+     *             mediaType="multipart/form-data",
+     *             @OA\Schema(ref="#/components/schemas/Trip")
+     *         )
+     *      ),
+     *      @OA\Response(response=200, description="successful operation"),
+     *      @OA\Response(response=400, description="Bad request"),
+     * )
+     *
      * @param TripRequest $request
      *
      * @return array
