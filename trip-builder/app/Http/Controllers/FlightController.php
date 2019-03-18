@@ -9,6 +9,16 @@ use App\Flight;
 class FlightController extends Controller
 {
     /**
+     * @OA\Get(
+     *      path="/flights",
+     *      operationId="getFlightsList",
+     *      tags={"Flights"},
+     *      summary="Get list of flights",
+     *      description="Returns list of flights",
+     *      @OA\Response(response=200, description="successful operation"),
+     *      @OA\Response(response=400, description="Bad request"),
+     * )
+     *
      * @param Request $request
      *
      * @return mixed
@@ -19,6 +29,26 @@ class FlightController extends Controller
     }
 
     /**
+     *
+     * @OA\Get(
+     *      path="/flights/{flight}",
+     *      operationId="getFlightById",
+     *      tags={"Flights"},
+     *      summary="Get flight information",
+     *      description="Returns flight data",
+     *      @OA\Parameter(
+     *          name="id",
+     *          description="Flight id",
+     *          required=true,
+     *          in="path",
+     *          @OA\Schema(
+     *              type="integer"
+     *          )
+     *      ),
+     *      @OA\Response(response=200, description="successful operation"),
+     *      @OA\Response(response=400, description="Bad request"),
+     * )
+     *
      * @param Flight $flight
      *
      * @return Flight
@@ -29,6 +59,26 @@ class FlightController extends Controller
     }
 
     /**
+     *
+     * @OA\Post(
+     *      path="/flights",
+     *      operationId="postFlight",
+     *      tags={"Flights"},
+     *      summary="Store flight",
+     *      description="Create new flight",
+     *      security={{"Bearer": {}}},
+     *      @OA\RequestBody(
+     *         description="Flight object",
+     *         required=true,
+     *         @OA\MediaType(
+     *             mediaType="multipart/form-data",
+     *             @OA\Schema(ref="#/components/schemas/Flight")
+     *         )
+     *      ),
+     *      @OA\Response(response=200, description="successful operation"),
+     *      @OA\Response(response=400, description="Bad request"),
+     * )
+     *
      * @param FlightRequest $request
      *
      * @return \Illuminate\Http\JsonResponse
@@ -41,6 +91,35 @@ class FlightController extends Controller
     }
 
     /**
+     *
+     * @OA\Put(
+     *      path="/flights/{flight}",
+     *      operationId="putFlight",
+     *      tags={"Flights"},
+     *      summary="Update flight",
+     *      description="update an flight",
+     *      security={{"Bearer": {}}},
+     *      @OA\Parameter(
+     *          name="id",
+     *          description="Flight id",
+     *          required=true,
+     *          in="path",
+     *          @OA\Schema(
+     *              type="integer"
+     *          )
+     *      ),
+     *      @OA\RequestBody(
+     *         description="Flight object",
+     *         required=true,
+     *         @OA\MediaType(
+     *             mediaType="multipart/form-data",
+     *             @OA\Schema(ref="#/components/schemas/Flight")
+     *         )
+     *      ),
+     *      @OA\Response(response=200, description="successful operation"),
+     *      @OA\Response(response=400, description="Bad request"),
+     * )
+     *
      * @param FlightRequest $request
      * @param Flight        $flight
      *
@@ -54,6 +133,27 @@ class FlightController extends Controller
     }
 
     /**
+     *
+     * @OA\Delete(
+     *      path="/flights/{flight}",
+     *      operationId="deleteFlight",
+     *      tags={"Flights"},
+     *      summary="Delete flight",
+     *      description="delete an flight",
+     *      security={{"Bearer": {}}},
+     *      @OA\Parameter(
+     *          name="id",
+     *          description="Flight id",
+     *          required=true,
+     *          in="path",
+     *          @OA\Schema(
+     *              type="integer"
+     *          )
+     *      ),
+     *      @OA\Response(response=200, description="successful operation"),
+     *      @OA\Response(response=400, description="Bad request"),
+     * )
+     *
      * @param Flight $flight
      *
      * @return \Illuminate\Http\JsonResponse

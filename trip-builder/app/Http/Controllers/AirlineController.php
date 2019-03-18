@@ -9,6 +9,17 @@ use App\Airline;
 class AirlineController extends Controller
 {
     /**
+     *
+     * @OA\Get(
+     *      path="/airlines",
+     *      operationId="getAirlinesList",
+     *      tags={"Airlines"},
+     *      summary="Get list of airlines",
+     *      description="Returns list of airlines",
+     *      @OA\Response(response=200, description="successful operation"),
+     *      @OA\Response(response=400, description="Bad request"),
+     * )
+     *
      * @param Request $request
      *
      * @return mixed
@@ -19,6 +30,26 @@ class AirlineController extends Controller
     }
 
     /**
+     *
+     * @OA\Get(
+     *      path="/airlines/{airline}",
+     *      operationId="getAirlineById",
+     *      tags={"Airlines"},
+     *      summary="Get airline information",
+     *      description="Returns airline data",
+     *      @OA\Parameter(
+     *          name="id",
+     *          description="Airline id",
+     *          required=true,
+     *          in="path",
+     *          @OA\Schema(
+     *              type="integer"
+     *          )
+     *      ),
+     *      @OA\Response(response=200, description="successful operation"),
+     *      @OA\Response(response=400, description="Bad request"),
+     * )
+     *
      * @param Airline $airline
      *
      * @return Airline
@@ -29,6 +60,28 @@ class AirlineController extends Controller
     }
 
     /**
+     *
+     * @OA\Post(
+     *      path="/airlines",
+     *      operationId="postAirline",
+     *      tags={"Airlines"},
+     *      summary="Store airline",
+     *      description="Create new airline",
+     *      security={
+     *         {"Authorization": {}}
+     *      },
+     *      @OA\RequestBody(
+     *         description="airline object",
+     *         required=true,
+     *         @OA\MediaType(
+     *             mediaType="application/x-www-form-urlencoded",
+     *             @OA\Schema(ref="#/components/schemas/Airline")
+     *         )
+     *      ),
+     *      @OA\Response(response=200, description="successful operation"),
+     *      @OA\Response(response=400, description="Bad request"),
+     * )
+     *
      * @param AirlineRequest $request
      *
      * @return \Illuminate\Http\JsonResponse
@@ -41,6 +94,35 @@ class AirlineController extends Controller
     }
 
     /**
+     *
+     * @OA\Put(
+     *      path="/airlines/{airline}",
+     *      operationId="putAirline",
+     *      tags={"Airlines"},
+     *      summary="Update airline",
+     *      description="update an airline",
+     *      security={{"Bearer": {}}},
+     *      @OA\Parameter(
+     *          name="id",
+     *          description="Airline id",
+     *          required=true,
+     *          in="path",
+     *          @OA\Schema(
+     *              type="integer"
+     *          )
+     *      ),
+     *      @OA\RequestBody(
+     *         description="airline object",
+     *         required=true,
+     *         @OA\MediaType(
+     *             mediaType="multipart/form-data",
+     *             @OA\Schema(ref="#/components/schemas/Airline")
+     *         )
+     *      ),
+     *      @OA\Response(response=200, description="successful operation"),
+     *      @OA\Response(response=400, description="Bad request"),
+     * )
+     *
      * @param Request $request
      * @param Airline $airline
      *
@@ -54,6 +136,27 @@ class AirlineController extends Controller
     }
 
     /**
+     *
+     * @OA\Delete(
+     *      path="/airlines/{airline}",
+     *      operationId="deleteAirline",
+     *      tags={"Airlines"},
+     *      summary="Delete airline",
+     *      description="delete an airline",
+     *      security={{"Bearer": {}}},
+     *      @OA\Parameter(
+     *          name="id",
+     *          description="Airline id",
+     *          required=true,
+     *          in="path",
+     *          @OA\Schema(
+     *              type="integer"
+     *          )
+     *      ),
+     *      @OA\Response(response=200, description="successful operation"),
+     *      @OA\Response(response=400, description="Bad request"),
+     * )
+     *
      * @param Airline $airline
      *
      * @return \Illuminate\Http\JsonResponse

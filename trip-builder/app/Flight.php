@@ -7,6 +7,24 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Support\Facades\Auth;
 
 /**
+ *
+ *  @OA\Schema(
+ *   schema="Flight",
+ *   type="object",
+ *   allOf={
+ *       @OA\Schema(
+ *           required={"code"},
+ *           @OA\Property(property="number"),
+ *           @OA\Property(property="airline_id"),
+ *           @OA\Property(property="departure_airport_id"),
+ *           @OA\Property(property="departure_time"),
+ *           @OA\Property(property="arrival_airport_id"),
+ *           @OA\Property(property="arrival_time"),
+ *           @OA\Property(property="price")
+ *       )
+ *   }
+ * )
+ *
  * @method static truncate()
  * @method static Flight create(array $array)
  * @method static paginate($get)

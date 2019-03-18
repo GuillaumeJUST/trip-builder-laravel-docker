@@ -7,6 +7,20 @@ use Illuminate\Database\Eloquent\Relations\BelongsTo;
 use Illuminate\Database\Eloquent\Relations\HasMany;
 
 /**
+ *
+ *  @OA\Schema(
+ *   schema="City",
+ *   type="object",
+ *   allOf={
+ *       @OA\Schema(
+ *           required={"code"},
+ *           @OA\Property(property="code"),
+ *           @OA\Property(property="name"),
+ *           @OA\Property(property="region_id")
+ *       )
+ *   }
+ * )
+ *
  * @method static City create(array $array)
  * @method static truncate()
  * @method static paginate($get)
