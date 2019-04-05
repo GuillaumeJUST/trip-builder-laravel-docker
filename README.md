@@ -11,7 +11,7 @@ https://docs.docker.com/compose/install/
 **Clone this repository**
 
 ```
-git clone https://github.com/guillaumejust/trip-builder-docker.git
+git clone git@github.com:GuillaumeJUST/trip-builder-laravel-docker.git
 ```
 
 ## Installation
